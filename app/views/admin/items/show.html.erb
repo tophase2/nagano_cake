@@ -2,10 +2,26 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      
+      <%= image_tag @item.image %>
     </div>
     <div class="col">
-      <table
+      <table class="table">
+        <tr>
+          <th>商品名</th>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td><%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <th>税込価格<br>(税抜価格)</th>
+          <td>(<%= @item.price %>) 円</td>
+        </tr>
+      </table>
+      <div class="d-flex justify-content-center">
+        <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %>
+      </div>
     </div>
   </div>
 </div>
