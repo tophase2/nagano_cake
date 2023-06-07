@@ -14,6 +14,11 @@ devise_for :customers, skip: [:passwords], controllers: {
   
   scope module: :public do
     resources :items, only: [:index, :show]
+    resources :cart_items, except: [:new, :show, :edit] do
+      collection do
+        delete 'destroy_all' => 'cart_items#destroy_all'
+      end
+    end
   end
 
 # 管理者用
