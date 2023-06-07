@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>商品一覧</h3><h5>(全<%= @items.count %>件)</h5>
+    </div>
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col">
+      <%= link_to item_path(item.id) do %>
+        <%= image_tag item %>
+      <% end %>
+      <p><%= item.name %></p>
+      <p>¥<%= item.price %></p>
+    </div>
+    <% end %>
+  </div>
+  <%= paginate @items %>
+</div>
