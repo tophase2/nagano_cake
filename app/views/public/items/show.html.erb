@@ -1,14 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <%= image_tag @item %>
+      <%= image_tag @item.image %>
     </div>
     <div class="col">
       <h5><%= @item.name %></h5>
       <p><%= @item.introduction %></p>
       <h4><%= @item.price %></h4>
-    </div>
-    <div>
       <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
         <%= f.hidden_field :item_id, :value => @item.id %>
         <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
