@@ -1,0 +1,15 @@
+<div class="container">
+  <h5>注文情報入力</h5>
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
+        <h5>支払い方法</h5>
+        <%= f.radio_button :payment_method, "credit_card" %>
+        <%= f.label :payment_method_credit_card, "クレジットカード" %>
+        
+        <%= f.radio_button :payment_method, "transfer" %>
+        <%= f.label :payment_method_transfer, "銀行振込" %>
+      <% end %>
+    </div>
+  </div>
+</div>
