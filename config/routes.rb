@@ -6,21 +6,21 @@ devise_for :customers, skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 
-  get 'customers/my_page' => 'public/customers#show'
-  get 'customers/information/edit' => 'public/customers#edit'
-  patch 'customers/information' => 'public/customers#update'
-  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
-  patch 'customers/withdraw' => 'public/customers#withdraw'
-  
-  delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
-  
-  post 'orders/confirm' => 'public/orders#confirm'
-  get 'orders/complete' => 'public/orders#complete'
-  
   scope module: :public do
     resources :items, only: [:index, :show]
     resources :cart_items, except: [:new, :show, :edit]
     resources :orders, except: [:edit, :update, :destroy]
+    
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
+    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
+    
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
   end
 
 # 管理者用
