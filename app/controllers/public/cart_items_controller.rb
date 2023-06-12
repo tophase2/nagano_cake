@@ -2,6 +2,11 @@ class Public::CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
+    if Item.find_by(name: @cart_item.item)
+      @cart_item.amount += params[:amount].to_i
+    else
+      CartItem.new(cart_item_params)
+    end
     if @cart_item.save
       redirect_to cart_items_path
     else
@@ -10,12 +15,13 @@ class Public::CartItemsController < ApplicationController
   end
   
   def index
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     @total_price = 0
   end
   
   def update
     @cart_item = CartItem.find(params[:id])
+    @cart_item.update(amount: params[:amount].to_i)
   end
   
   def destroy
