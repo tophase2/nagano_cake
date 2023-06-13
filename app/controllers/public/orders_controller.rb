@@ -14,12 +14,12 @@ class Public::OrdersController < ApplicationController
       @order_detail.item_id = cart_item.item_id
       @order_detail.order_id = @order.id
       @order_detail.amount = cart_item.amount
-      @order_detail.price = cart_item.item.price * cart_item.amount 
+      @order_detail.price = cart_item.subtotal
       @order_detail.save
       end
       
     @cart_items.destroy_all
-    redirect_to complete_orders_path
+    redirect_to orders_complete_path
   end
   
   def index
@@ -28,6 +28,8 @@ class Public::OrdersController < ApplicationController
   
   def show
     @order = Order.find(params[:id])
+    @order_details = @order.order_details
+    @total_price = 0
   end
   
   def confirm
