@@ -7,10 +7,6 @@ devise_for :customers, skip: [:passwords], controllers: {
 }
 
   scope module: :public do
-    resources :items, only: [:index, :show]
-    resources :cart_items, except: [:new, :show, :edit]
-    resources :orders, except: [:edit, :update, :destroy]
-    
     get 'customers/my_page' => 'customers#show'
     get 'customers/information/edit' => 'customers#edit'
     patch 'customers/information' => 'customers#update'
@@ -21,6 +17,10 @@ devise_for :customers, skip: [:passwords], controllers: {
     
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
+    
+    resources :items, only: [:index, :show]
+    resources :cart_items, except: [:new, :show, :edit]
+    resources :orders, except: [:edit, :update, :destroy]
   end
 
 # 管理者用
