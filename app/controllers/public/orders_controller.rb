@@ -6,6 +6,7 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
+    @order.shipping_cost = 800
     @order.save
     
     @cart_items = current_customer.cart_items
@@ -16,7 +17,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.amount = cart_item.amount
       @order_detail.price = cart_item.subtotal
       @order_detail.save
-      end
+    end
       
     @cart_items.destroy_all
     redirect_to orders_complete_path
