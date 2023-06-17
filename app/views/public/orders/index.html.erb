@@ -30,7 +30,7 @@
     		          <% end %>
     		        </td>
     		        <td>
-    		          <%= order.total_payment %>円
+    		          <%= order.total_payment + order.shipping_cost %>円
     		        </td>
          	      <td>
        	          <%= link_to "表示する", order_path(order), class: "btn btn-primary" %>

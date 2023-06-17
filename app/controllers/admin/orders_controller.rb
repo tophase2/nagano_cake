@@ -1,6 +1,7 @@
-class Admin::HomesController < ApplicationController
-  def top
-    @orders = Order.page(params[:page])
+class Admin::OrdersController < ApplicationController
+  def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
   
   private
