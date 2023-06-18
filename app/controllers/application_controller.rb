@@ -5,7 +5,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     if resource_or_scope.is_a?(Admin)
       admin_root_path
     else
-      new_admin_session_path
+      items_path
     end
   end
   
@@ -13,7 +13,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     if resource_or_scope == :admin
       new_admin_session_path
     else
-      new_customer_session_path
+      root_path
     end
   end
   

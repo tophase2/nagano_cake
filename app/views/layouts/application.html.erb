@@ -18,7 +18,7 @@
           <% if admin_signed_in? %>
             <%= link_to "NaganoCAKE", admin_root_path, class: "header-title navbar-brand" %>
           <% else %>
-            <%= link_to "NaganoCAKE", admin_items_path, class: "header-title navbar-brand" %>
+            <%= link_to "NaganoCAKE", root_path, class: "header-title navbar-brand" %>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,6 +39,7 @@
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary mb-5 mx-3 my-3" %>
         </li>
       <% elsif customer_signed_in? %>
+        <li class="nav-item active">ようこそ、<%= current_customer.last_name %>さん！</li>
         <li class="nav-item">
           <%= link_to "マイページ", customers_my_page_path, class: "btn btn-outline-secondary mb-5 mx-3 my-3" %>
         </li>
@@ -53,7 +54,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "About", class: "btn btn-outline-secondary mb-5 mx-3 my-3" %>
+          <%= link_to "About", about_path, class: "btn btn-outline-secondary mb-5 mx-3 my-3" %>
         </li>
         <li class="nav-item">
           <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary mb-5 mx-3 my-3" %>
@@ -71,5 +72,12 @@
       </nav>
     </header>
     <%= yield %>
+    <footer>
+      <div class="d-flex justify-content-center">
+    <a href="#" class="mx-1 text-dark"><i class="fab fa-twitter fa-2x"></i></a>
+    <a href="#" class="mx-5 text-dark"><i class="fab fa-instagram fa-2x"></i></a>
+    <a href="#" class="mx-1 text-dark"><i class="far fa-envelope fa-2x"></i></a>
+      </div>
+    </footer>
   </body>
 </html>
