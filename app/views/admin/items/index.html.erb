@@ -1,13 +1,9 @@
 <div class="container">
+  <h3 class="mx-5 my-5"><strong>商品一覧</strong></h3>
   <div class="row">
-    <div class="col">
-      <h5 class="my-5">商品一覧</h5>
-    </div>
-    <div class="col">
-      <%= link_to new_admin_item_path, class: "btn btn-outline-secondary" do %>
-        <i class="fa-light fa-circle-plus"></i>
-      <% end %>
-    </div>
+    <%= link_to new_admin_item_path class: "btn btn-outline-secondary" do %>
+      <i class="fa-light fa-circle-plus"></i>
+    <% end %>
   </div>
   <div class="row">
     <div class="col">

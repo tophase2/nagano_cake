@@ -1,13 +1,33 @@
-<h5>商品新規登録</h5>
-<%= form_with model: @item, url: admin_items_path do |f| %>
-  
-  <h6>商品画像</h6>
-    <%= f.file_field :image, accept: "image/*" %>
-  <h6>商品名</h6>
-    <%= f.text_field :name %>
-  <h6>商品説明</h6>
-    <%= f.text_area :introduction %>
-  <h6>税抜価格</h6>
-    <%= f.text_field :price %>円
-  <%= f.submit "新規登録" %>
-<% end %>
+<div class="container">
+  <h3 class="mx-5 my-5"><strong>商品新規登録</strong></h3>
+  <div class="row mx-auto justify-content-center">
+    <div class="col-8">
+      <%= form_with model: @item, url: admin_items_path do |f| %>
+        <table>
+          <tbody>
+            <tr>
+              <th>商品画像</th>
+              <td><%= f.file_field :image, accept: "image/*" %></td>
+            </tr>
+            <tr>
+              <th>商品名</th>
+              <td><%= f.text_field :name, placeholder: "商品名" %></td>
+            </tr>
+            <tr>
+              <th>商品説明</th>
+              <td><%= f.text_area :introduction, size: "50x5", placeholder: "ここに説明文を記述します" %></td>
+            </tr>
+            <tr>
+              <th>税抜価格</th>
+              <td><%= f.text_field :price, placeholder: "1000" %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
