@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container text-center">
   <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-8">
+    <div class="col-8 mx-auto">
+      <%= image_tag "top.jpg", :size => '700x300' %>
       <p>
         ようこそ、ながのCAKEへ！<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
@@ -9,5 +9,23 @@
         購入には会員登録が必要になります。
       </p>
     </div>
+  </div>
+</div>
+
+<div class="container">
+  <h5>新着商品</h5>
+  <div class="row d-flex">
+    <% @items.each do |item| %>
+      <div class="col-3">
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.get_image(100,100) %>
+        <% end %>
+        <p><%= item.name %></p>
+        <p>¥<%= item.price %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="row justify-content-end">
+    <%= link_to "全ての商品を見る＞", items_path %>
   </div>
 </div>
