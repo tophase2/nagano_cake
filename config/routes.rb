@@ -36,7 +36,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     root 'homes#top'
     resources :items, except: [:destroy]
     resources :customers, except: [:new, :create, :destroy]
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:show]
   end
   
 end
