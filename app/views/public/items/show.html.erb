@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <%= image_tag @item.get_image(100,100) %>
+  <div class="row my-5">
+    <div class="col my-5">
+      <%= image_tag @item.get_image(500,500) %>
     </div>
-    <div class="col">
-      <h5><%= @item.name %></h5>
-      <p><%= @item.introduction %></p>
-      <h4>¥ <%= @item.price %> (税込)</h4>
+    <div class="col my-5">
+      <h4 class="my-4"><strong><%= @item.name %></strong></h4>
+      <p class="my-4"><%= @item.introduction %></p>
+      <h4 class="my-5">¥ <%= @item.with_tax_price %> (税込)</h4>
       <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
         <%= f.hidden_field :item_id, :value => @item.id %>
         <%= f.select :amount, *[1..10], include_blank: "個数選択" %>

@@ -1,34 +1,39 @@
 <div class="container">
-  <h4 class="mx-5 my-5"><strong>ログイン</strong></h4>
-  <h5>会員の方はこちらからログイン</h5>
-  <div class="row">
-    
-    <div class="col-8">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :メールアドレス %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3" %>
+  <h4 class="mx-4 my-5"><strong>ログイン</strong></h4>
+  <h5 class="mx-5 my-4">会員の方はこちらからログイン</h5>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <%= f.label :メールアドレス %>
+          </div>
+          <div class="col-6">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3" %>
+          </div>
         </div>
-
-        <div class="field">
-         <%= f.label :"パスワード" %>
-         <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-3" %>
+      </div>
+      <div class="field">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-auto">
+            <%= f.label :パスワード %>
+          </div>
+          <div class="col-6">
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-3" %>
+          </div>
         </div>
-
+      </div>
+      <div class="row mb-4 justify-content-center">
         <div class="actions">
           <%= f.submit "ログイン", class: "btn btn-primary" %>
         </div>
-      <% end %>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <h5>会員登録がお済みでない方</h5>
-  </div>
-      <div class="col-auto">
+      </div>
+    <% end %>
+  <h5 class="mx-5">会員登録がお済みでない方</h5>
+    <div class="row">
+      <div class="col-5 my-5 mx-auto">
         <%= link_to "こちら", new_customer_registration_path %> から新規登録を行ってください。
       </div>
-  
+    </div>
 </div>
 
 

@@ -5,28 +5,28 @@
       <%= form_with model: @customer, url: admin_customer_path do |f| %>
       <table>
         <tr>
-          <div class="form-group">
+          <div class="field">
             <th><%= f.label :会員ID %></th>
             <td><%= @customer.id %></td>
           </div>
         </tr>
         <tr>
-          <div class="form-group">
+          <div class="field">
             <th><%= f.label :氏名 %></th>
-              <td>
-                <div class="row">
-                  <div class="col">
-                    <%= f.text_field :last_name, class: "form-control mb-2" %>
-                  </div>
-                  <div class="col">
-                    <%= f.text_field :first_name, class: "form-control mb-2" %>
-                  </div>
+            <td>
+              <div class="row">
+                <div class="col">
+                  <%= f.text_field :last_name, class: "form-control mb-2" %>
                 </div>
-              </td>
+                <div class="col">
+                  <%= f.text_field :first_name, class: "form-control mb-2" %>
+                </div>
+              </div>
+            </td>
           </div>
         </tr>
         <tr>
-          <div class="form-group">
+          <div class="field">
             <th><%= f.label :フリガナ %></th>
             <td>
               <div class="row">
@@ -41,31 +41,31 @@
           </div>
         </tr>
         <tr>
-          <div class="form-group">
+          <div class="field">
             <th><%= f.label :郵便番号 %></th>
             <td><%= f.text_field :postal_code, class: "form-control mb-2" %></td>
           </div>
         </tr>
         <tr>
-          <div class="form-group">
+          <div class="field">
             <th><%= f.label :住所 %></th>
             <td><%= f.text_field :address, class: "form-control mb-2" %></td>
           </div>
         </tr>
         <tr>
-          <div class="form-group">
+          <div class="field">
             <th><%= f.label :電話番号 %></th>
             <td><%= f.text_field :telephone_number, class: "form-control mb-2" %></td>
           </div>
         </tr>
         <tr>
-          <div class="form-group">
+          <div class="field">
             <th><%= f.label :メールアドレス %></th>
             <td><%= f.text_field :email, class: "form-control mb-2" %></td>
           </div>
         </tr>
         <tr>
-          <div class="form-group">
+          <div class="field">
             <th><%= f.label :会員ステータス %></th>
             <td>
               <%= f.radio_button :is_deleted, false %>
