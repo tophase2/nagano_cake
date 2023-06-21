@@ -1,8 +1,8 @@
 <div class="container">
-  <h5>注文情報確認</h5>
+  <h4 class="mx-5 my-4"><strong>注文情報確認</strong></h4>
   <div class="row">
     <div class="col">
-      <table class="table">
+      <table class="table table-hover table-bordered">
         <thead>
           <tr>
             <th>商品名</th>
@@ -19,13 +19,13 @@
                 <%= image_tag cart_item.item.get_image(50,50) %>
                 <%= cart_item.item.name %>
               </td>
-              <td class="text-right">
+              <td class="text-left">
                 <%= cart_item.item.with_tax_price %>
               </td>
-              <td class="text-right">
+              <td class="text-left">
                 <%= cart_item.amount %>
               </td>
-              <td class="text-right">
+              <td class="text-left">
                 <%= cart_item.subtotal %>
               </td>
             </tr>
@@ -33,32 +33,30 @@
         </tbody>
       </table>
     </div>
-    <div class="col">
-      <table class="table">
+    <div class="col-4">
+      <table class="table table-hover table-bordered">
         <tr>
           <th>送料</th>
-          <td class="text-right col-xs-5"><%= @order.shipping_cost %></td>
+          <td class="text-left col-xs-5"><%= @order.shipping_cost %></td>
         </tr>
         <tr>
           <th class="info">商品合計</th>
-          <td class="text-right"><%= @total_price %></td>
+          <td class="text-left"><%= @total_price %></td>
         </tr>
         <tr>
           <th class="info">請求金額</th>
-          <td class="text-right"><%= @total_price + @order.shipping_cost %></td>
+          <td class="text-left"><%= @total_price + @order.shipping_cost %></td>
         </tr>
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-8">
-      <h5>支払方法</h5>
-        <%= @order.payment_method_i18n %>
-      <h5>お届け先</h5>
-        <%= "#{@order.postal_code} #{@order.address} #{@order.name}" %>
-    </div>
+  <div class="row mx-2 my-3">
+    <h5><strong>支払方法</strong></h5>　<%= @order.payment_method_i18n %>
   </div>
-  <div class="row">
+  <div class="row mx-2 my-3">
+    <h5><strong>お届け先</strong></h5>　<%= "〒#{@order.postal_code} #{@order.address} #{@order.name}" %>
+  </div>
+  <div class="row my-5">
     <h3 class="mx-auto">
       <%= form_with model: @order, url: orders_path, method: :post do |f| %>
         <%= f.hidden_field :payment_method, :value => @order.payment_method %>

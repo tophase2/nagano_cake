@@ -1,5 +1,5 @@
 <div class="container">
-  <h5>注文履歴一覧</h5>
+  <h4 class="mx-5 my-4"><strong>注文履歴一覧</strong></h4>
   <div class="row">
     <div class="col">
       <% if @orders.exists? %>
@@ -20,7 +20,7 @@
     		          <%= order.created_at.strftime('%Y/%m/%d') %>
     		        </td>
     		        <td>
-    		          <%= order.postal_code %><br>
+    		          〒<%= order.postal_code %><br>
     		          <%= order.address %><br>
     		          <%= order.name %>
     		        </td>
@@ -32,7 +32,7 @@
     		        <td>
     		          <%= order.total_payment + order.shipping_cost %>円
     		        </td>
-         	      <td>
+         	      <td class="text-center">
        	          <%= link_to "表示する", order_path(order), class: "btn btn-primary" %>
        	        </td>
               </tr>

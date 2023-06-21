@@ -1,4 +1,5 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
   def new
     @item = Item.new
   end
@@ -7,7 +8,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "商品の新規登録が完了しました。"
-      redirect_to admin_items_path
+      redirect_to admin_item_path(@item)
     else
       flash[:alert] = "商品の新規登録内容に不備があります。"
       render :new
