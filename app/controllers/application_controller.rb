@@ -5,14 +5,6 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     if resource_or_scope.is_a?(Admin)
       admin_root_path
     else
-      root_path
-    end
-  end
-  
-  def after_sign_up_path_for(resource_or_scope)
-    if resource_or_scope.is_a?(Admin)
-      admin_root_path
-    else
       customers_my_page_path
     end
   end

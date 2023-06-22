@@ -14,9 +14,10 @@
           <%= "〒#{current_customer.postal_code} #{current_customer.address}" %><br>
           <%= "#{current_customer.last_name}#{current_customer.first_name}" %>
         </div>
+        <div class="mx-5 my-5 justify-content-center">
+          <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+        </div>
   </div>
-  <div class="row my-5 justify-content-center">
-    <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
-  </div>
+  
     <% end %>
 </div>
