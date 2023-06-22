@@ -2,7 +2,7 @@
   <h4 class="mx-5 my-4"><strong><%= @customer.last_name %><%= @customer.first_name %></strong>さんの<strong>会員情報編集</strong></h4>
   <div class="row">
     <div class="col-8 mb-5 mx-5">
-      <%= form_with model: @customer, url: admin_customers_path, method: :patch do |f| %>
+      <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
       <table>
         <tr>
           <div class="field">
@@ -76,12 +76,10 @@
           </div>
         </tr>
       </table>
+      <div class="my-3 d-flex justify-content-center">
+        <%= f.submit "変更を保存", class: "btn btn-success" %>
+      </div>
+      <% end %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-8 mb-5 mx-auto">
-      <%= f.submit "変更を保存", class: "btn btn-success" %>
-    </div>
-    <% end %>
   </div>
 </div>
